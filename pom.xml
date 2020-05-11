@@ -9,11 +9,11 @@
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cs544.exercise14</groupId>
-	<artifactId>appointment-project</artifactId>
+	<groupId>cs544.project</groupId>
+	<artifactId>appointmentrest-springdata-jpa</artifactId>
 
-	<name>Appointment_Project</name>
-	<description>Simple Restful Service Using Spring boot</description>
+	<name>Appointment Project</name>
+	<description>Restful Service Using Spring boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>

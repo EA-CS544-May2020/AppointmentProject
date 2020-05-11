@@ -2,6 +2,7 @@
     <wb-module deploy-name="exercise14_SpringData_JPA">
         <wb-resource deploy-path="/" source-path="/src/main/java"/>
         <wb-resource deploy-path="/" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/" source-path="/src/test/java"/>
         <dependent-module deploy-path="/" handle="module:/resource/common-base-service/common-base-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>

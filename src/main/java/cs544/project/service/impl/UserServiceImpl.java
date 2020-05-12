@@ -1,9 +1,10 @@
-package cs544.project.service;
+package cs544.project.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cs544.project.domain.User;
+import cs544.project.service.IUserService;
 import cs544.project.service.response.UserResponse;
 import edu.miu.common.service.BaseReadServiceImpl;
 

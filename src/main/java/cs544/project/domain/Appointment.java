@@ -1,12 +1,15 @@
 package cs544.project.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,10 +27,13 @@ public class Appointment {
 	
 	private String status;
 	
-	@ManyToOne
-	@JoinColumn(name = "userid")
-	private User creator;
+//	@ManyToOne
+//	@JoinColumn(name = "userid")
+//	private User creator;
 
+	@OneToMany(mappedBy = "appointment")
+	private List<Reservation> reservations = new ArrayList<Reservation>();
+	
 	public Appointment() {}
 			
 	public Appointment(Date date, Date time, String status) {
@@ -64,13 +70,21 @@ public class Appointment {
 		return id;
 	}
 
-	public User getCreator() {
-		return creator;
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
 
-	public void setCreator(User creator) {
-		this.creator = creator;
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
+
+//	public User getCreator() {
+//		return creator;
+//	}
+//
+//	public void setCreator(User creator) {
+//		this.creator = creator;
+//	}
 	
 	
 }

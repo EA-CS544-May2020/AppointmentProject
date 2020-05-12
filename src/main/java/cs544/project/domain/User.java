@@ -1,11 +1,20 @@
 package cs544.project.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
 	@Id
+	@GeneratedValue
 	private Integer userid;
 	private String firstName;
 	private String lastName;
@@ -13,6 +22,18 @@ public class User {
 	private String gender;
 	private String username;
 	private String password;
+	
+	@ManyToMany
+	@JoinTable(name = "User_Role", 
+		joinColumns = {@JoinColumn(name = "userid")}, 
+		inverseJoinColumns = {@JoinColumn(name = "roleid")} )
+	private List<Role> listRole = new ArrayList<Role>();
+	
+	@OneToMany(mappedBy = "creator")
+	private List<Appointment> appointments = new ArrayList<Appointment>();
+	
+	@OneToMany(mappedBy = "booker")
+	private List<Reservation> reservation = new ArrayList<Reservation>();
 	
 	public User() {}
 
@@ -76,6 +97,30 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
+	}
+
+	public List<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(List<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
+	public List<Role> getListRole() {
+		return listRole;
+	}
+
+	public void setListRole(List<Role> listRole) {
+		this.listRole = listRole;
 	}
 	
 

@@ -27,13 +27,15 @@ public class User {
 	@JoinTable(name = "User_Role", 
 		joinColumns = {@JoinColumn(name = "userid")}, 
 		inverseJoinColumns = {@JoinColumn(name = "roleid")} )
-	private List<Role> listRole = new ArrayList<Role>();
+	private List<Role> roles = new ArrayList<Role>();
 	
-	@OneToMany(mappedBy = "creator")
+	@OneToMany
+	@JoinColumn(name = "user_id")
 	private List<Appointment> appointments = new ArrayList<Appointment>();
 	
-	@OneToMany(mappedBy = "booker")
-	private List<Reservation> reservation = new ArrayList<Reservation>();
+	@OneToMany
+	@JoinColumn(name = "user_id")
+	private List<Reservation> reservations = new ArrayList<Reservation>();
 	
 	public User() {}
 
@@ -107,20 +109,20 @@ public class User {
 		this.appointments = appointments;
 	}
 
-	public List<Reservation> getReservation() {
-		return reservation;
+	public List<Role> getRoles() {
+		return roles;
 	}
 
-	public void setReservation(List<Reservation> reservation) {
-		this.reservation = reservation;
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
 
-	public List<Role> getListRole() {
-		return listRole;
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
-	public void setListRole(List<Role> listRole) {
-		this.listRole = listRole;
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 	
 

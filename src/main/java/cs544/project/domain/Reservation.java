@@ -24,9 +24,13 @@ public class Reservation {
 	
 	private String location;
 	
+//	@ManyToOne
+//	@JoinColumn(name = "userid")
+//	private User booker;
+	
 	@ManyToOne
-	@JoinColumn(name = "userid")
-	private User booker;
+	@JoinColumn(name = "appointment_id")
+	private Appointment appointment;
 
 	public Reservation() {}
 			
@@ -65,12 +69,12 @@ public class Reservation {
 		this.location = location;
 	}
 
-	public User getBooker() {
-		return booker;
-	}
-
-	public void setBooker(User booker) {
-		this.booker = booker;
-	}
+//	public User getBooker() {
+//		return booker;
+//	}
+//
+//	public void setBooker(User booker) {
+//		this.booker = booker;
+//	}
 	
 }
